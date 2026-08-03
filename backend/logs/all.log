@@ -1,1 +1,2 @@
 2026-08-04 00:00:32:032 info: 🚀 Server running in development mode on port 5000
+2026-08-04 00:03:15:315 warn: [AppError] 404 - Can't find /favicon.ico on this server!
