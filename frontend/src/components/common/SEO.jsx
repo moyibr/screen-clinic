@@ -6,7 +6,7 @@ import { seoDefaultImage } from '../../config/siteImages';
 const SEO = ({ title, description, keywords, image, url }) => {
     const seoTitle = title ? `${title} | ${siteConfig.clinicName}` : siteConfig.seo.defaultTitle;
     const seoDescription = description || siteConfig.seo.defaultDescription;
-    const seoKeywords = keywords || siteConfig.seo.defaultKeywords.join(', ');
+    const seoKeywords = keywords || siteConfig.seo.keywords;
     const seoImage = image || seoDefaultImage; // Default OG image
 
     return (
