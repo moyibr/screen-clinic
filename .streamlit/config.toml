@@ -1,0 +1,4 @@
+[server]
+# Lets Streamlit serve plain files placed in ./static/ at /app/static/<file>.
+# Required for streamlit_app.py to hand off to the built React site.
+enableStaticServing = true

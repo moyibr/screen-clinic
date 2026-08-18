@@ -10,9 +10,21 @@ const app: Application = express();
 
 // Security Middlewares
 app.use(helmet());
+
+// CORS_ORIGIN supports a comma-separated list, e.g.
+// "http://localhost:5173,https://screen-clinic.vercel.app"
+const allowedOrigins = env.CORS_ORIGIN.split(',').map((origin) => origin.trim());
+
 app.use(
     cors({
-        origin: env.CORS_ORIGIN,
+        origin: (origin, callback) => {
+            // Allow non-browser requests (curl, server-to-server, health checks) with no Origin header
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error(`CORS: Origin '${origin}' is not allowed`));
+            }
+        },
         credentials: true,
     })
 );
